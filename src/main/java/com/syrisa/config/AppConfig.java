@@ -63,5 +63,13 @@ public class AppConfig {
         transactionManager.setSessionFactory(getSessionFactory().getObject());
         return transactionManager;
     }
+    @Bean
+    public ICityDao cityDao(){
+        return new HibernateCityDao();
+    }
+    @Bean
+    public ICityService cityService(){
+        return new CityManager(cityDao());
+    }
 
 }
