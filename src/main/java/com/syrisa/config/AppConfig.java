@@ -20,10 +20,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
 
 import static org.hibernate.cfg.AvailableSettings.*;
-
+@EnableTransactionManagement
 @Configuration
 @PropertySource(value = "classpath:hibernate.properties",encoding = "UTF-8")
-@ComponentScan("com.syrisa")
+@ComponentScan(basePackages = "com.syrisa")
 public class AppConfig {
     @Autowired
     private Environment environment;
