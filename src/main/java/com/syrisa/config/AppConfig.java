@@ -54,6 +54,7 @@ public class AppConfig {
         factoryBean.setAnnotatedClasses(City.class);//Model sınıfları araya virgül at devam et
         return factoryBean;
     }
+
     @Bean
     public HibernateTransactionManager getTransactionManager(){
         HibernateTransactionManager transactionManager=new HibernateTransactionManager();
