@@ -7,25 +7,29 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
+
 @Repository
 public class HibernateCityDao implements ICityDao<City> {
     @Autowired
     private SessionFactory sessionFactory;
-    public Session getCurrentSession(){
+
+    public Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
+
     @Override
     @Transactional
     public List<City> getAll() {
-        List<City> cities=getCurrentSession().createQuery("from City ",City.class).getResultList();
+        List<City> cities = getCurrentSession().createQuery("from City ", City.class).getResultList();
         return cities;
 
     }
 
     @Override
     public City getById(int id) {
-        City city=getCurrentSession().get(City.class,id);
+        City city = getCurrentSession().get(City.class, id);
         return city;
     }
 
@@ -41,7 +45,7 @@ public class HibernateCityDao implements ICityDao<City> {
 
     @Override
     public void delete(City city) {
-       City cityToDelete=sessionFactory.getCurrentSession().get(City.class,city.getId());
+        City cityToDelete = getCurrentSession().get(City.class, city.getId());
         getCurrentSession().delete(cityToDelete);
     }
 }
