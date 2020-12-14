@@ -13,7 +13,7 @@ import java.util.List;
 public class HibernateCityDao implements ICityDao<City> {
     @Autowired
     private SessionFactory sessionFactory;
-    public synchronized Session getCurrentSession(){
+    public Session getCurrentSession(){
         return sessionFactory.getCurrentSession();
     }
     @Override
