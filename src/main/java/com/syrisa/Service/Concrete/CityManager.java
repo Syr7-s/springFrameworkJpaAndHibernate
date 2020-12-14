@@ -4,9 +4,10 @@ import com.syrisa.DataAccess.Abstract.ICityDao;
 import com.syrisa.Entities.City;
 import com.syrisa.Service.Abstract.ICityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CityManager implements ICityService<City> {
     private ICityDao cityDao;
     @Autowired
