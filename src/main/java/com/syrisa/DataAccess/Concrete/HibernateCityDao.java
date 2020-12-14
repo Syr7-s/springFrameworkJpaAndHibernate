@@ -13,36 +13,36 @@ import java.util.List;
 public class HibernateCityDao implements ICityDao<City> {
     @Autowired
     private SessionFactory sessionFactory;
-    public Session getCurrentSession(){
+    public synchronized Session getCurrentSession(){
         return sessionFactory.getCurrentSession();
     }
     @Override
     @Transactional
     public List<City> getAll() {
-        List<City> cities=sessionFactory.getCurrentSession().createQuery("from City ",City.class).getResultList();
+        List<City> cities=getCurrentSession().createQuery("from City ",City.class).getResultList();
         return cities;
 
     }
 
     @Override
     public City getById(int id) {
-        City city=sessionFactory.getCurrentSession().get(City.class,id);
+        City city=getCurrentSession().get(City.class,id);
         return city;
     }
 
     @Override
     public void add(City city) {
-        sessionFactory.getCurrentSession().saveOrUpdate(city);
+        getCurrentSession().saveOrUpdate(city);
     }
 
     @Override
     public void update(City city) {
-        sessionFactory.getCurrentSession().saveOrUpdate(city);
+        getCurrentSession().saveOrUpdate(city);
     }
 
     @Override
     public void delete(City city) {
        City cityToDelete=sessionFactory.getCurrentSession().get(City.class,city.getId());
-        sessionFactory.getCurrentSession().delete(cityToDelete);
+        getCurrentSession().delete(cityToDelete);
     }
 }
