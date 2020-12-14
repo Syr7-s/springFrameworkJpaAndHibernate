@@ -6,20 +6,25 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
-@Component("entityManagerCityDao")
+@Component("entityCityDao")
 public class HibernateCityDao implements ICityDao<City> {
    private EntityManager entityManager;
+   @Autowired
    public HibernateCityDao(EntityManager entityManager){
        this.entityManager=entityManager;
    }
     @Override
+    @Transactional
     public List<City> getAll() {
-        return null;
+        List<City> cities=entityManager.createQuery("from City",City.class).getResultList();
+        return cities;
+
     }
 
     @Override
