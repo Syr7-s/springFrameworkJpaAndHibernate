@@ -22,7 +22,8 @@ public class HibernateCityDao implements ICityDao<City> {
     @Override
     @Transactional
     public List<City> getAll() {
-        List<City> cities=entityManager.createQuery("from City",City.class).getResultList();
+        Session session=entityManager.unwrap(Session.class);
+        List<City> cities=session.createQuery("from City",City.class).getResultList();
         return cities;
 
     }
