@@ -5,10 +5,10 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "city")
-public class City implements Serializable{
+public class City {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "name")
     private String name;

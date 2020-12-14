@@ -3,10 +3,7 @@ package com.syrisa.controller;
 import com.syrisa.Entities.City;
 import com.syrisa.Service.Abstract.ICityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,8 +15,13 @@ public class HomeController {
     public HomeController(ICityService cityService){
         this.cityService=cityService;
     }
-    @GetMapping("/home")
-    public List<City> home(){
+    @GetMapping("/allCity")
+    @ResponseBody
+    public List<City> get(){
         return this.cityService.getAll();
+    }
+    @GetMapping("/city/{id}")
+    public City getById(@PathVariable int id){
+        return (City)this.cityService.getById(id);
     }
 }
