@@ -5,10 +5,12 @@ import com.syrisa.Entities.City;
 import com.syrisa.Service.Abstract.ICityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
+@Transactional(propagation = Propagation.REQUIRED,readOnly = false,rollbackFor = Exception.class)
 public class CityManager implements ICityService<City> {
     private ICityDao cityDao;
     @Autowired
@@ -16,19 +18,16 @@ public class CityManager implements ICityService<City> {
         this.cityDao=cityDao;
     }
     @Override
-    @Transactional
     public List<City> getAll() {
         return cityDao.getAll();
     }
 
     @Override
-    @Transactional
     public City getById(int id) {
         return (City )cityDao.getById(id);
     }
 
     @Override
-    @Transactional
     public void add(City city) {
         cityDao.add(city);
     }
@@ -39,7 +38,6 @@ public class CityManager implements ICityService<City> {
     }
 
     @Override
-    @Transactional
     public void delete(City city) {
         cityDao.delete(city);
     }
