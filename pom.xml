@@ -54,13 +54,6 @@
       <artifactId>spring-orm</artifactId>
       <version>5.2.5.RELEASE</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-c3p0</artifactId>
-      <version>5.2.11.Final</version>
-    </dependency>
-
     <!-- c3p0 -->
     <dependency>
       <groupId>com.mchange</groupId>
@@ -68,6 +61,17 @@
       <version>0.9.5.5</version>
     </dependency>
 
+    <!-- Hibernate Validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>7.0.0.Alpha1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.4.25.Final</version>
+    </dependency>
 
 
   </dependencies>

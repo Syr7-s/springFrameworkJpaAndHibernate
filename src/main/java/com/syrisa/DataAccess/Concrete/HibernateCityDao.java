@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
-@Component("entityCityDao")
+
 public class HibernateCityDao implements ICityDao<City> {
    private EntityManager entityManager;
    @Autowired
