@@ -16,26 +16,26 @@ public class CityManager implements ICityService<City> {
     }
     @Override
     public List<City> getAll() {
-        return null;
+        return cityDao.getAll();
     }
 
     @Override
     public City getById(int id) {
-        return null;
+        return (City )cityDao.getById(id);
     }
 
     @Override
     public void add(City city) {
-
+        cityDao.add(city);
     }
 
     @Override
     public void update(City city) {
-
+        cityDao.update(city);
     }
 
     @Override
     public void delete(City city) {
-
+        cityDao.delete(city);
     }
 }
