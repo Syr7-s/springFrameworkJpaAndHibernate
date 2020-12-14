@@ -3,6 +3,8 @@ package com.syrisa.config;
 import com.syrisa.DataAccess.Abstract.ICityDao;
 import com.syrisa.DataAccess.Concrete.HibernateCityDao;
 import com.syrisa.Entities.City;
+import com.syrisa.Service.Abstract.ICityService;
+import com.syrisa.Service.Concrete.CityManager;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +27,10 @@ public class AppConfig {
     @Bean
     public ICityDao cityDao(){
         return new HibernateCityDao(entityCityDao());
+    }
+    @Bean
+    public ICityService cityService(){
+        return new CityManager(cityDao());
     }
 
 }
