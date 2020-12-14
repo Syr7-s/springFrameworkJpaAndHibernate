@@ -16,7 +16,6 @@ public class HomeController {
         this.cityService=cityService;
     }
     @GetMapping("/allCity")
-    @ResponseBody
     public List<City> get(){
         return this.cityService.getAll();
     }
