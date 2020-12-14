@@ -61,12 +61,7 @@
       <version>0.9.5.5</version>
     </dependency>
 
-    <!-- Hibernate Validator -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>7.0.0.Alpha1</version>
-    </dependency>
+
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
