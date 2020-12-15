@@ -2,26 +2,27 @@ package com.syrisa.Entities;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "country")
-public class Country {
+public class Country implements Serializable {
     @Id
     @Column(name = "Code")
     private String countryCode;
-    @Column(name = "name")
+    @Column(name = "Name")
     private String countryName;
-    @Column(name="continent")
+    @Column(name="Continent")
     private String countryContinent;
-    @Column(name = "region")
+    @Column(name = "Region")
     private String countryRegion;
-    @Column(name = "population")
+    @Column(name = "Population")
     private int countryPopulation;
-    @Column(name="localName")
+    @Column(name="LocalName")
     private String countryLocalName;
-    @Column(name = "governmentForm")
+    @Column(name = "GovernmentForm")
     private String countryGovernmentForm;
-    @Column(name="headOfState")
+    @Column(name="HeadOfState")
     private String countryHeadOfState;
     public Country(){}
 

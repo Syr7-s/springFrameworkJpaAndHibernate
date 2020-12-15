@@ -5,6 +5,7 @@ import com.syrisa.DataAccess.Abstract.ICountryDao;
 import com.syrisa.DataAccess.Concrete.HibernateCityDao;
 import com.syrisa.DataAccess.Concrete.HibernateCountryDao;
 import com.syrisa.Entities.City;
+import com.syrisa.Entities.Country;
 import com.syrisa.Service.Abstract.ICityService;
 import com.syrisa.Service.Abstract.ICountryService;
 import com.syrisa.Service.Concrete.CityManager;
@@ -55,7 +56,7 @@ public class AppConfig {
         properties.put(C3P0_CONFIG_PREFIX+".initialPoolSize",environment.getProperty("hibernate.c3p0.initialPoolSize"));
 
         factoryBean.setHibernateProperties(properties);
-        factoryBean.setAnnotatedClasses(City.class);//Model sınıfları araya virgül at devam et
+        factoryBean.setAnnotatedClasses(City.class, Country.class);//Model sınıfları araya virgül at devam et
         return factoryBean;
     }
 
