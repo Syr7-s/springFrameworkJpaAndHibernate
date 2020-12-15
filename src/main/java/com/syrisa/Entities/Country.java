@@ -12,7 +12,7 @@ public class Country {
     @Column(name = "name")
     private String countryName;
     @Column(name="continent")
-    private String coutryContinent;
+    private String countryContinent;
     @Column(name = "region")
     private String countryRegion;
     @Column(name = "population")
@@ -25,10 +25,10 @@ public class Country {
     private String countryHeadOfState;
     public Country(){}
 
-    public Country(String countryCode, String countryName, String coutryContinent, String countryRegion, int countryPopulation, String countryLocalName, String countryGovernmentForm, String countryHeadOfState) {
+    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, int countryPopulation, String countryLocalName, String countryGovernmentForm, String countryHeadOfState) {
         this.countryCode = countryCode;
         this.countryName = countryName;
-        this.coutryContinent = coutryContinent;
+        this.countryContinent = countryContinent;
         this.countryRegion = countryRegion;
         this.countryPopulation = countryPopulation;
         this.countryLocalName = countryLocalName;
@@ -53,11 +53,11 @@ public class Country {
     }
 
     public String getCoutryContinent() {
-        return coutryContinent;
+        return countryContinent;
     }
 
     public void setCoutryContinent(String coutryContinent) {
-        this.coutryContinent = coutryContinent;
+        this.countryContinent = coutryContinent;
     }
 
     public String getCountryRegion() {
