@@ -19,26 +19,37 @@ public class HibernateCountryDao implements ICountryDao<Country> {
     @Override
     @Transactional
     public List<Country> getAll() {
-        return null;
+        List<Country> countries=getCurrentSession().createQuery("from Country",Country.class).getResultList();
+        return countries;
     }
 
     @Override
-    public Country getById(int id) {
+    public  Country getById(int id) {
         return null;
     }
 
     @Override
     public void add(Country country) {
-
+        if (country.getCountryCode().equals(null))
+            getCurrentSession().save(country);
+        else
+            getCurrentSession().saveOrUpdate(country);
     }
 
     @Override
     public void update(Country country) {
-
+        getCurrentSession().saveOrUpdate(country);
     }
 
     @Override
     public void delete(Country country) {
+        Country countryToDelete=getCurrentSession().get(Country.class,country.getCountryCode());
+        getCurrentSession().delete(countryToDelete);
+    }
 
+    @Override
+    public Country getByCode(String t) {
+        Country country=getCurrentSession().get(Country.class,t);
+        return country;
     }
 }
