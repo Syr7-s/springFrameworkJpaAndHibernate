@@ -33,6 +33,6 @@ public class CountryController {
                     country.getCountryGovernmentForm()+" "+
                     country.getCountryHeadOfState());
         }
-        return "Tum ulkeler getirildi";
+        return "Tum country getirildi";
     }
 }
