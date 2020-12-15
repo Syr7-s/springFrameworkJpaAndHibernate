@@ -22,7 +22,7 @@ public class HibernateCityDao implements ICityDao<City> {
     @Override
     @Transactional
     public List<City> getAll() {
-        List<City> cities = getCurrentSession().createQuery("from City ", City.class).getResultList();
+        List<City> cities = getCurrentSession().createQuery("from City", City.class).getResultList();
         return cities;
 
     }
