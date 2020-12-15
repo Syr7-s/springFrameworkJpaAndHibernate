@@ -28,19 +28,19 @@ public class HomeController {
     public String get(){
         List<City> cities=cityService.getAll();
         for (City city:cities) {
-            System.out.println(city.getName()+" "+city.getDistrict());
+            System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
         }
         return "Tum sehirler getirildi";
     }
     @GetMapping("/city/{id}")
     public String getById(@PathVariable int id){
         City city= (City) cityService.getById(id);
-        System.out.println(city.getName()+" "+city.getDistrict());
-        return id+" city getirildi.";
+        System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
+        return city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation();
     }
-    @PostMapping("city/add")
+    @GetMapping("city/add")
     public String add(){
-        City city=new City(0,"Istanbul","TUR","Marmara Bolgesi",15000);
+        City city=new City(0,"Bursa","TUR","Marmara Bolgesi",15000);
         cityService.add(city);
         return "Yeni sehir eklendi.";
     }
