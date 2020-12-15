@@ -1,10 +1,15 @@
 package com.syrisa.config;
 
 import com.syrisa.DataAccess.Abstract.ICityDao;
+import com.syrisa.DataAccess.Abstract.ICountryDao;
 import com.syrisa.DataAccess.Concrete.HibernateCityDao;
+import com.syrisa.DataAccess.Concrete.HibernateCountryDao;
 import com.syrisa.Entities.City;
+import com.syrisa.Entities.Country;
 import com.syrisa.Service.Abstract.ICityService;
+import com.syrisa.Service.Abstract.ICountryService;
 import com.syrisa.Service.Concrete.CityManager;
+import com.syrisa.Service.Concrete.CountryManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -51,7 +56,7 @@ public class AppConfig {
         properties.put(C3P0_CONFIG_PREFIX+".initialPoolSize",environment.getProperty("hibernate.c3p0.initialPoolSize"));
 
         factoryBean.setHibernateProperties(properties);
-        factoryBean.setAnnotatedClasses(City.class);//Model sınıfları araya virgül at devam et
+        factoryBean.setAnnotatedClasses(City.class, Country.class);//Model sınıfları araya virgül at devam et
         return factoryBean;
     }
 
@@ -69,5 +74,8 @@ public class AppConfig {
     public ICityService cityService(){
         return new CityManager(cityDao());
     }
-
+    @Bean
+    public ICountryDao countryDao(){return new HibernateCountryDao(); }
+    @Bean
+    public ICountryService countryService(){return new CountryManager(countryDao()); }
 }

@@ -12,7 +12,7 @@ public class City implements Serializable{
     private int id;
     @Column(name = "name")
     private String name;
-    @Column(name = "countrycode")
+    @Column(name = "countryCode")
     private String countryCode;
     @Column(name = "district")
     private String district;
