@@ -2,6 +2,7 @@ package com.syrisa.controller;
 
 import com.syrisa.Entities.City;
 import com.syrisa.Service.Abstract.ICityService;
+import org.apache.tiles.request.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,9 +40,14 @@ public class HomeController {
         return city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation();
     }
     @GetMapping("city/add")
-    public String add(){
-        City city=new City(0,"Bursa","TUR","Marmara Bolgesi",15000);
+    public String add(@RequestParam String cityName,
+                      @RequestParam String countryCode,
+                      @RequestParam String district,
+                      @RequestParam int population)
+    {
+        City city=new City(0,cityName,countryCode,district,population);
         cityService.add(city);
+
         return "Yeni sehir eklendi.";
     }
 }
