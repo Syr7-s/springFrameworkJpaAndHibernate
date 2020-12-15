@@ -11,11 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/home")
 public class CityController {
-    private ICityService cityService;
     @Autowired
-    public CityController(ICityService cityService){
-        this.cityService=cityService;
-    }
+    private ICityService cityService;
+
   /*  @GetMapping("/allCity")
     public List<City> get(){
         return this.cityService.getAll();
