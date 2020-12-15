@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -22,8 +26,13 @@ public class HibernateCityDao implements ICityDao<City> {
     @Override
     @Transactional
     public List<City> getAll() {
-        List<City> cities = getCurrentSession().createQuery("from City", City.class).getResultList();
-        return cities;
+        CriteriaBuilder criteriaBuilder = getCurrentSession().getCriteriaBuilder();
+        CriteriaQuery<City> criteriaQuery = criteriaBuilder.createQuery(City.class);
+        Root<City> rootEntry = criteriaQuery.from(City.class);
+        CriteriaQuery<City> tum = criteriaQuery.select(rootEntry);
+        TypedQuery<City> cities = getCurrentSession().createQuery(tum);
+        //List<City> cities = getCurrentSession().createQuery("from City", City.class).getResultList();
+        return cities.getResultList();
 
     }
 
