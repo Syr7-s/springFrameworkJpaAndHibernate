@@ -10,13 +10,13 @@ public class City implements Serializable{
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name")
+    @Column(name = "Name")
     private String name;
-    @Column(name = "countrycode")
+    @Column(name = "CountryCode")
     private String countryCode;
-    @Column(name = "district")
+    @Column(name = "District")
     private String district;
-    @Column(name = "population")
+    @Column(name = "Population")
     private int population;
     public City(){}
 
