@@ -38,4 +38,10 @@ public class HomeController {
         System.out.println(city.getName()+" "+city.getDistrict());
         return id+" city getirildi.";
     }
+    @PostMapping("city/add")
+    public String add(){
+        City city=new City(0,"Istanbul","TUR","Marmara Bolgesi",15000);
+        cityService.add(city);
+        return "Yeni sehir eklendi.";
+    }
 }
