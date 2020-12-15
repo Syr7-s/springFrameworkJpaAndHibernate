@@ -10,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/home")
-public class HomeController {
+public class CityController {
     private ICityService cityService;
     @Autowired
-    public HomeController(ICityService cityService){
+    public CityController(ICityService cityService){
         this.cityService=cityService;
     }
   /*  @GetMapping("/allCity")
