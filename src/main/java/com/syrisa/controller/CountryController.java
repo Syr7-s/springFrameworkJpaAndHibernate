@@ -12,8 +12,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/country")
 public class CountryController {
-    @Autowired
+
     private ICountryService countryService;
+    @Autowired
+    public CountryController(ICountryService countryService){
+        this.countryService=countryService;
+    }
 
     @GetMapping("/allCountry")
     public String get(){
