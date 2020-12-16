@@ -17,23 +17,23 @@ public class CityController {
     public CityController(ICityService cityService){
         this.cityService=cityService;
     }
-  /*  @GetMapping("/allCity")
+    /*@GetMapping("/allCity")
     public List<City> get(){
         return this.cityService.getAll();
-    }
+    }/*
     @GetMapping("/city/{id}")
     public City getById(@PathVariable int id){
         return (City)this.cityService.getById(id);
     }
 */
-    @GetMapping("/allCity")
+  /*  @GetMapping("/allCity")
     public String get(){
         List<City> cities=cityService.getAll();
         for (City city:cities) {
             System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
         }
         return "Tum sehirler getirildi";
-    }
+    }*/
     @GetMapping("/city/{id}")
     public String getById(@PathVariable int id){
         City city= (City) cityService.getById(id);
