@@ -1,11 +1,16 @@
 package com.syrisa.Entities;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "country")
+@Data
+@AllArgsConstructor
 public class Country implements Serializable {
     @Id
     @Column(name = "Code")
@@ -24,7 +29,7 @@ public class Country implements Serializable {
     private String countryGovernmentForm;
     @Column(name="HeadOfState")
     private String countryHeadOfState;
-    public Country(){}
+  /*  public Country(){}
 
     public Country(String countryCode, String countryName, String countryContinent, String countryRegion, int countryPopulation, String countryLocalName, String countryGovernmentForm, String countryHeadOfState) {
         this.countryCode = countryCode;
@@ -99,5 +104,5 @@ public class Country implements Serializable {
 
     public void setCountryHeadOfState(String countryHeadOfState) {
         this.countryHeadOfState = countryHeadOfState;
-    }
+    }*/
 }

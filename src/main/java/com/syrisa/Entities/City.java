@@ -1,10 +1,15 @@
 package com.syrisa.Entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "city")
+@Data
+@AllArgsConstructor
 public class City implements Serializable{
     @Id
     @Column(name = "ID")
@@ -18,7 +23,7 @@ public class City implements Serializable{
     private String district;
     @Column(name = "population")
     private int population;
-    public City(){}
+   /* public City(){}
 
     public City(int id, String name, String countryCode, String district, int population) {
         this.id = id;
@@ -66,5 +71,5 @@ public class City implements Serializable{
 
     public void setPopulation(int population) {
         this.population = population;
-    }
+    }*/
 }
