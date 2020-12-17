@@ -13,12 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/country")
 public class CountryController {
-
-    private ICountryService countryService;
     @Autowired
-    public CountryController(ICountryService countryService){
-        this.countryService=countryService;
-    }
+    private ICountryService countryService;
 
     @GetMapping("/allCountry")
     public String get(){
@@ -26,7 +22,7 @@ public class CountryController {
         for (Country country:countryList) {
             System.out.println(country.getCountryCode()+" "+
                     country.getCountryName()+" "+
-                    country.getCoutryContinent()+" "+
+                    country.getCountryContinent()+" "+
                     country.getCountryRegion()+" "+
                     country.getCountryPopulation()+" "+
                     country.getCountryLocalName()+" "+
@@ -42,7 +38,7 @@ public class CountryController {
         Country country=(Country) countryService.getByCode(countryCode);
         System.out.println(country.getCountryCode()+" "+
                 country.getCountryName()+" "+
-                country.getCoutryContinent()+" "+
+                country.getCountryContinent()+" "+
                 country.getCountryRegion()+" "+
                 country.getCountryPopulation()+" "+
                 country.getCountryLocalName()+" "+
