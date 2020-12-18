@@ -54,10 +54,7 @@ public class HibernateCityDao implements ICityDao<City> {
 
     @Override
     public void add(City city) {
-        if (city.getId() == 0)
-            getCurrentSession().save(city);
-        else
-            getCurrentSession().saveOrUpdate(city);
+        getCurrentSession().saveOrUpdate(city);
     }
 
     @Override
