@@ -37,8 +37,13 @@ public class CityController {
     @GetMapping("/city/{id}")
     public String getById(@PathVariable int id){
         City city= (City) cityService.getById(id);
-        System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
-        return city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation();
+        if (city!=null){
+            System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
+            return city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation();
+        }
+        else {
+            return "Boyle bir sehir yok";
+        }
     }
     @GetMapping("city/add")
     public String add(@RequestParam String cityName,
