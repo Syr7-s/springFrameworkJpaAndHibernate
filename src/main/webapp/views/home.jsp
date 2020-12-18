@@ -10,23 +10,18 @@
 <head>
     <title>Home Page</title>
 </head>
-<body>
-    <div style="background-color: cadetblue">
-        <div>
-            <label>City Name</label>
-            <input type="text" name="cityName"/>
-            <br/>
-            <label>City Country Code</label>
-            <input type="text" name="countryCode"/>
-            <br/>
-            <label>City District</label>
-            <input type="text" name="district"/>
-            <br/>
-            <label>City Population</label>
-            <input type="number" name="population"/>
-            <br/>
-
+<body style="background-color: cadetblue">
+<div>
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Example label</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
         </div>
-    </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Another label</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        </div>
+    </form>
+</div>
 </body>
 </html>
