@@ -25,15 +25,24 @@ public class CityController {
     @GetMapping("/city/{id}")
     public String getById(@PathVariable int id){
         City city= (City) cityService.getById(id);
-        System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
-        return city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation();
+        if (city!=null){
+            System.out.println(city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation());
+            return city.getId()+" "+city.getName()+" "+city.getCountryCode()+" "+city.getDistrict()+" "+ city.getPopulation();
+        }
+        else {
+            return "Boyle bir sehir yok";
+        }
     }
     @GetMapping("city/add")
-    public String add(@RequestParam String cityName,
+    public String add(/*@RequestParam String cityName,
                       @RequestParam String countryCode,
                       @RequestParam String district,
-                      @RequestParam int population)
+                      @RequestParam int population*/)
     {
+        String cityName="New York";
+        String countryCode="USA";
+        String district="MIAMI";
+        int population=1500000;
         City city=new City(0,cityName,countryCode,district,population);
         cityService.add(city);
 

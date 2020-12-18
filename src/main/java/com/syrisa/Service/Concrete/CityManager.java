@@ -29,7 +29,10 @@ public class CityManager implements ICityService<City> {
 
     @Override
     public void add(City city) {
-        cityDao.add(city);
+        if (city.getId()!=0)
+            this.cityDao.add(city);
+        else
+            this.cityDao.update(city);
     }
 
     @Override
